@@ -33,6 +33,12 @@
             <td><%= stock.identifier %></td>
             <td><%= stock.type %></td>
             <td><%= stock.ltp %></td>
+            <%stk = Stock.find stock.id%>
+            <%if stk.watchers.first == current_user %>
+            <td><%= link_to 'Watched'%></td>
+            <%else%>
+            <td><%= button_to '+', {:controller => "stocks", :action => "add_to_watchlist", :stock_id => stk.id, :user_id=> session[:user_id]} , {:method=>:post}  %></td>
+            <%end%>
             <td><%= link_to 'View', stock_path(stock.id) %></td>
           </tr>
         <% end %>
