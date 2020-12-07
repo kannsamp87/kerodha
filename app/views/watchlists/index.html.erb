@@ -1,0 +1,30 @@
+
+<p id="notice"><%= notice %></p>
+<% if current_user %> 
+<p>
+  Press <%= link_to 'here', search_stocks_path %> to search for stocks.
+</p>
+<table><tr><th><h1>My Watchlists</h1></th><th><h1><%= link_to 'All Stocks', stocks_path %></h1> </th><th> <h1><%= link_to 'NSE', nse_stocks_path %></h1> </th> <th> <h1><%= link_to 'BSE', bse_stocks_path %></h1></th></tr></table>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @watchlists.each do |watchlist| %>
+      <tr>
+        <td><%=$redis.hget("stocksnew", watchlist.stock_id)%></td>
+        <td><%=watchlist.watched_stocks.ltp%></td>
+        <td><%= link_to 'Remove', watchlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%end%>

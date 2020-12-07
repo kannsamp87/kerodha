@@ -1,0 +1,67 @@
+<%= form_for(stock) do |f| %>
+  <% if stock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(stock.errors.count, "error") %> prohibited this stock from being saved:</h2>
+
+      <ul>
+      <% stock.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :identifier %>
+    <%= f.text_field :identifier %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type %>
+    <%= f.text_field :type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :base_price %>
+    <%= f.text_field :base_price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ltp %>
+    <%= f.text_field :ltp %>
+  </div>
+
+  <div class="field">
+    <%= f.label :high %>
+    <%= f.text_field :high %>
+  </div>
+
+  <div class="field">
+    <%= f.label :low %>
+    <%= f.text_field :low %>
+  </div>
+
+  <div class="field">
+    <%= f.label :open %>
+    <%= f.text_field :open %>
+  </div>
+
+  <div class="field">
+    <%= f.label :close %>
+    <%= f.text_field :close %>
+  </div>
+
+  <div class="field">
+    <%= f.label :delisted %>
+    <%= f.check_box :delisted %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

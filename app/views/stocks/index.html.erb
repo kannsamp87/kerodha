@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+<% if current_user %> 
+<p>
+  Press <%= link_to 'here', search_stocks_path %> to search for stocks.
+</p>
+
+
+<table><tr><th><h1><%= link_to 'My Watchlists', watchlists_path %></h1> </th><th><h1><%= link_to 'All Stocks', stocks_path %></h1> </th><th> <h1><%= link_to 'NSE', nse_stocks_path %></h1> </th> <th> <h1><%= link_to 'BSE', bse_stocks_path %></h1></th></tr></table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Identifier</th>
+      <th>Type</th>
+      <th>Base price</th>
+      <th>Ltp</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Open</th>
+      <th>Close</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stocks.each do |stock| %>
+      <tr>
+        <td><%= stock.name %></td>
+        <td><%= stock.identifier %></td>
+        <td><%= stock.type %></td>
+        <td><%= stock.base_price %></td>
+        <td><%= stock.ltp %></td>
+        <td><%= stock.high %></td>
+        <td><%= stock.low %></td>
+        <td><%= stock.open %></td>
+        <td><%= stock.close %></td>
+        <%if stock.watchers.first == current_user %>
+        <td><%= link_to 'Watched'%></td>
+        <%else%>
+        <td><%= button_to '+', {:controller => "stocks", :action => "add_to_watchlist", :stock_id => stock.id, :user_id=> session[:user_id]} , {:method=>:post}  %></td>
+        <%end%>
+        <td><%= link_to 'Show', stock %></td>
+        <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
+        <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stock', new_stock_path %>
+<%end%>

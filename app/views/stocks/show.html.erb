@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+<% if current_user %>
+<p>
+  <strong>Name:</strong>
+  <%= @stock.name %>
+</p>
+
+<p>
+  <strong>Identifier:</strong>
+  <%= @stock.identifier %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @stock.type %>
+</p>
+
+<p>
+  <strong>Base price:</strong>
+  <%= @stock.base_price %>
+</p>
+
+<p>
+  <strong>Ltp:</strong>
+  <%= @stock.ltp %>
+</p>
+
+<p>
+  <strong>High:</strong>
+  <%= @stock.high %>
+</p>
+
+<p>
+  <strong>Low:</strong>
+  <%= @stock.low %>
+</p>
+
+<p>
+  <strong>Open:</strong>
+  <%= @stock.open %>
+</p>
+
+<p>
+  <strong>Close:</strong>
+  <%= @stock.close %>
+</p>
+
+<p>
+  <strong>Delisted:</strong>
+  <%= @stock.delisted %>
+</p>
+
+<%= link_to 'Edit', edit_stock_path(@stock) %> |
+<%= link_to 'Back', stocks_path %>
+<% end %>
