@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>You got a new stock watchlist from <%= @order.name %>!</p>
+    <p>
+    Stock details<br>
+    --------------------------
+    </p>
+    <p>Name: <%= @order.name %></p>
+    <p>Identifier: <%= @order.identifier %></p>
+    <p>Type: <%= @order.type %></p>
+    <p>LTP: <%= @order.ltp %></p>
+    <p>
+    Message:<br>
+    ----------
+    </p>
+    <p><%= @order.ltp %></p>
+  </body>
+</html>

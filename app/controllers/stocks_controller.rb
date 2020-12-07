@@ -63,6 +63,9 @@ class StocksController < ApplicationController
   def add_to_watchlist
     @watch = Watchlist.new(user_id: params[:user_id], stock_id: params[:stock_id])
     if @watch.save
+      stock = Stock.find @watch.stock_id
+      # Send watchlist mail
+      StockWatchMailer.new_stock_watch_email(stock).deliver_later
       respond_to do |format|
         format.html { redirect_to stocks_url, notice: 'Stock was successfully added in the watchlist.' }
         format.json { head :no_content }
