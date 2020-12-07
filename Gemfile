@@ -65,3 +65,7 @@ gem 'faraday_middleware-aws-signers-v4'
 
 gem 'sidekiq'
 
+gem 'delayed_job_active_record'
+
+gem 'foreman'
+
