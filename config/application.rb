@@ -13,5 +13,8 @@ module Kerodha
     # -- all .rb files in that directory are automatically loaded.
     config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes }
     config.active_job.queue_adapter = :delayed_job
+
+    config.i18n.available_locales = [:en, :ru, :ja]
+	config.i18n.default_locale = :en
   end
 end

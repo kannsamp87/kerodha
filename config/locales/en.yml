@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+  welcome: "Welcome!"
+  services_html: "We provide some fancy services to <em>good people</em>."
+  signup: "Sign up"
+  login: "Login"
+  logout: "Logout"
+#  login_status: "Logged in as %{username}."

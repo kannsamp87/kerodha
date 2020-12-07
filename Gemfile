@@ -69,3 +69,6 @@ gem 'delayed_job_active_record'
 
 gem 'foreman'
 
+gem 'rails-i18n'
+
+

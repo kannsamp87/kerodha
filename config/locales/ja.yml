@@ -1,0 +1,5 @@
+ja:
+  signup: "登録する"
+  login: "ログイン"
+  logout: "ログアウト"
+  #login_status: "%{username}としてログインしています。"
