@@ -14,3 +14,51 @@
 12. Security testing (Basics of XSS SQL injection, and run brakeman)
 13. https://github.com/rubocop-hq/rails-style-guide
 14. Code review with mentor
+
+# Kerodha - Stock Market brokerage application (In Progress)
+## APIs
+* User Details - GET /users/id
+* Stock Details - GET /stocks/id
+* List Stocks - GET /stocks
+* User Stocks - GET /user/id/positions
+* Buy Order - POST /user/id {stock_id, requested_price, quantity}
+* Sell Order - POST /user/id {stock_id, requested_price, quantity}
+* Modify Order - PATCH /user/id/order/id {quantity, requested_price}
+* Cancel Order - PATCH /user/id/order/id {cancelled: true}
+
+## Model
+* User
+	* email
+	* first name
+	* last name
+	* is_verified
+	* deactivated
+* Stocks
+	* base_price
+	* ltp
+	* high
+	* low
+	* open
+	* close
+	* type - NSE, BSE
+	* delisted
+* UserWatchlist
+	* user_id
+	* stock_id
+* UserStocks
+	* user_id
+	* quantity
+	* stock_id
+	* user_id
+	* type - intraday, holding
+	* average_price
+* UserStocksOrder
+	* user_stock_id
+	* type  - buy, sell
+	* quantity
+	* status - pending, completed, cancelled
+	* requested_price
+	* completed_price
+	* request_type - limit, market_price
+	* completed_at
+	* cancelled_at
