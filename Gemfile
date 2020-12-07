@@ -71,4 +71,4 @@ gem 'foreman'
 
 gem 'rails-i18n'
 
-
+gem "brakeman"
