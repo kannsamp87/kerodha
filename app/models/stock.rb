@@ -1,6 +1,7 @@
 require 'elasticsearch/model'
 
 class Stock < ApplicationRecord
+	 include ActiveModel::Validations
 
 	include Elasticsearch::Model
   	include Elasticsearch::Model::Callbacks
@@ -25,6 +26,8 @@ class Stock < ApplicationRecord
 	scope :bse, -> { where(type: 'BSE') } 
 
 	delegate :nse, :bse, to: :stocks
+	validates :ltp, numericality: { only_integer: true, greater_than: 0 }
+	validates :base_price, numericality: { only_integer: true, greater_than: 0 }
 
 	def self.cache_stocks
 	    self.all.each do |stock|
