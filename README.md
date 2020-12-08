@@ -2,7 +2,7 @@
 
 # To start the server
 * cd kerodha/app
-* bundle exec foreman start
+* bundle exec foreman start - (will start all dependencies `sidekiq`, `elasticsearch`, `rake:jobs`, `redis-server`, `rails server -p 3000`)
 
 # Exercises
 
