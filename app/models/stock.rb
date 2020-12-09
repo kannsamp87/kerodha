@@ -22,10 +22,13 @@ class Stock < ApplicationRecord
 
 	after_commit :clear_cache
 	
-	scope :nse, -> { where(type: 'NSE') } 	
-	scope :bse, -> { where(type: 'BSE') } 
+	scope :nse, -> { where(type: 'NSE', archived: false) } 	
+	scope :bse, -> { where(type: 'BSE', archived: false) } 
 
 	delegate :nse, :bse, to: :stocks
+	validates :name, presence: true, length: { maximum: 50 }, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+	validates :identifier, presence: true, length: { in: 3..12 }
+	validates :type, presence: true, inclusion: { in: %w(NSE BSE), message: "%{value} is not a valid size" }, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
 	validates :ltp, numericality: { only_integer: true, greater_than: 0 }
 	validates :base_price, numericality: { only_integer: true, greater_than: 0 }
 
@@ -35,7 +38,7 @@ class Stock < ApplicationRecord
 	    end
   	end
 
-	def self.clear_cache
+	def clear_cache
 	    $redis.hkeys("stocksnew").each do |key|
 	    	$redis.hdel("stocksnew",key)
 	    end
@@ -47,6 +50,10 @@ class Stock < ApplicationRecord
 	      only: [:id, :name, :identifier, :type, :base_price, :ltp, :delisted]
 	    )
   	end  
+
+  	def to_s
+  		puts "#{self.id}, #{self.name}, #{self.ltp}, #{self.identifier}, #{self.type}"
+  	end
 
   	def self.search_published(query)
 	  self.search({
