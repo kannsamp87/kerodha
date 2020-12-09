@@ -23,12 +23,15 @@
 
 # Kerodha - Stock Market brokerage application (In Progress)
 ## APIs
+### Done
 * User Details - GET /users/id
 * Stock Details - GET /stocks/id
 * List Stocks - GET /stocks
 * User Stocks - GET /user/id/positions
 * List User Watchlist - GET /user/id/watchlists
 * Add Watchlist - POST /user/id/add_to_watchlist
+
+### Yet to Implement
 * Buy Order - POST /user/id {stock_id, requested_price, quantity}
 * Sell Order - POST /user/id {stock_id, requested_price, quantity}
 * Modify Order - PATCH /user/id/order/id {quantity, requested_price}
@@ -60,6 +63,8 @@
 	* user_id
 	* type - intraday, holding
 	* average_price
+
+### Yet to Implement
 * UserStocksOrder
 	* user_stock_id
 	* type  - buy, sell
