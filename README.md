@@ -13,12 +13,12 @@
 5. include delayed  jobs - `Done`
 6. Elastic Search in sample app(IC2 and above) - `Done`
 7. Cache utuility - `Done`
-8. Rspec and minitest
+8. Rspec and minitest - `In Progress`
 9. Sending Email form App - `Done`
-10. Use some aws components/ File attachment components s3 etc
+10. Use some aws components/ File attachment components s3 etc - `Yet to start`
 11. I18n Support in app - `Done`
 12. Security testing (Basics of XSS SQL injection, and run brakeman) - `Done`
-13. https://github.com/rubocop-hq/rails-style-guide
+13. https://github.com/rubocop-hq/rails-style-guide - `Done`
 14. Code review with mentor
 
 # Kerodha - Stock Market brokerage application (In Progress)
