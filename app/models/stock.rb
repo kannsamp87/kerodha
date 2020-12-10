@@ -15,10 +15,10 @@ class Stock < ApplicationRecord
 	    end
   	end
 
-	has_and_belongs_to_many :users, :uniq => true
+	has_and_belongs_to_many :users, uniq: true
 	# belongs_to :user
 	has_many :watchlists
-	has_many :watchers, :through => :watchlists
+	has_many :watchers, through: :watchlists
 
 	after_commit :clear_cache
 	

@@ -45,6 +45,14 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
+  gem 'database_cleaner', '~> 1.5'
+  gem 'factory_bot', '~> 4.8', '>= 4.8.2'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing', '~> 0.0.3'
+  gem 'rspec', '~> 3.6'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
 end
 
 group :development do
@@ -54,6 +62,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rspec-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -72,3 +81,4 @@ gem 'foreman'
 gem 'rails-i18n'
 
 gem "brakeman"
+
